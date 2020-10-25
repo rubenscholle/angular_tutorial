@@ -20,8 +20,10 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
+  // With the subscription, the heroes array can now be requested asynchroniously
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    this.heroService.getHeroes()
+        .subscribe(heroes => this.heroes = heroes);
   }
 
   onSelect(hero: Hero): void {

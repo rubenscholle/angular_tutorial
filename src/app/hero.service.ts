@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
+import { Observable, of } from 'rxjs';
 
 // Annotation to register the service with the injector
 @Injectable({
@@ -15,8 +16,8 @@ export class HeroService {
      The browser does not wait/blocks for the server to respond. The
      service must be asynchronous, therefore.
   */
-  getHeroes(): Hero[] {
-    return HEROES;
-  }
+ getHeroes(): Observable<Hero[]> {
+  return of(HEROES);
+}
 
 }
